@@ -64,7 +64,20 @@ public class UtilPlay {
 						   "Minute: " + minute + "\n" +
 						   "Second: " + second + "\n");*/
 		
-		
+		LocalDateTime localDateTime = LocalDateTime.parse("1992-08-05T12:51:23");
+		/*int year = localDateTime.getYear();
+		int month = localDateTime.getMonthValue();
+		int day = localDateTime.getDayOfMonth();
+		int hour = localDateTime.getHour();
+		int minute = localDateTime.getMinute();
+		int second = localDateTime.getSecond();
+ 
+	    System.out.println("Year: "   + year   + "\n" +
+						   "Month: "  + month  + "\n" +
+						   "Day: "    + day    + "\n" +
+						   "Hour: "   + hour   + "\n" +
+						   "Minute: " + minute + "\n" +
+						   "Second: " + second + "\n");*/
 		
 		
 	}
@@ -74,8 +87,12 @@ public class UtilPlay {
 
 	//from date to LocalDate
 
+	//from date to LocalTime
+	
 	//from date to LocaleDateTime
 
+	
+	
 	//play with localdatetime
 
 	//play with Joda
