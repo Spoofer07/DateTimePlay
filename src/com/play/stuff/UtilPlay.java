@@ -1,4 +1,5 @@
 package com.play.stuff;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -35,8 +36,13 @@ public class UtilPlay {
 	//printlns
 	public static void printlns() {	
 		
-		Date date = new Date(1987, 12, 15, 17, 10, 01);
-		/*int year = date.getYear();
+		/*
+		 * notes
+		 * year must be year - 1900
+		 * the months are between 0 - 11 
+		 */
+		/*Date date = new Date(118, 11, 15, 17, 10, 1);
+		int year = date.getYear() - 1;
 		int month = date.getMonth();
 		int day = date.getDate();
 		int hour = date.getHours();
@@ -85,13 +91,58 @@ public class UtilPlay {
 	
 	//comparisons
 
-	//from date to LocalDate
+	//from Date to LocalDate
+	public static void fromDateToLocalDate() {
+		Date date = new Date(2019-1900, 11, 15, 17, 10, 01);
+		
+		//LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+		//LocalDate localDate = Instant.ofEpochMilli(date.getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
+		LocalDate localDate = new java.sql.Date(date.getTime()).toLocalDate();
+		
+		System.out.println(localDate);
+	}
+	
+	//from Date to LocalDateTime
+	public static void fromDateToLocalDateTime() {
+		Date date = new Date(2011-1900, 11, 15, 17, 10, 01);
+		
+		//LocalDateTime localDateTime = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+		//LocalDateTime localDateTime = Instant.ofEpochMilli(date.getTime()).atZone(ZoneId.systemDefault()).toLocalDateTime();
+		LocalDateTime localDateTime = new java.sql.Timestamp(date.getTime()).toLocalDateTime();
+		
+		System.out.println(localDateTime);
+	}
 
 	//from date to LocalTime
+	public static void fromDateToLocalTime() {
+		Date date = new Date(2011-1900, 11, 15, 17, 10, 01);
+		
+		//LocalTime localTime = date.toInstant().atZone(ZoneId.systemDefault()).toLocalTime();
+		LocalTime localTime = Instant.ofEpochMilli(date.getTime()).atZone(ZoneId.systemDefault()).toLocalTime();
+		
+		System.out.println(localTime);
+	}
 	
-	//from date to LocaleDateTime
-
+	//from LocalDate to Date
+	public static void fromLocalDateToDate() {
+		LocalDate localDate = LocalDate.parse("2007-12-03");
+		
+		//Date date = java.sql.Date.valueOf(localDate);
+		//THIS ALSO SETS THE TIME(0 IF NOT SPECIFIED)
+		Date date = java.util.Date.from(localDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
+		
+		System.out.println(date);
+	}
 	
+	//fromLocalDateTime to Date
+	public static void fromLocalDateTimeToDate() {
+		LocalDateTime localDateTime = LocalDateTime.parse("1992-08-05T12:51:23");
+		
+		//Date date = java.sql.Timestamp.valueOf(localDateTime);
+		Date date = java.util.Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
+		
+		System.out.println(date);
+	}
 	
 	//play with localdatetime
 

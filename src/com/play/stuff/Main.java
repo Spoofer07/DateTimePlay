@@ -9,7 +9,17 @@ public class Main {
 		
 		//dateInit();
 		
-		printlns();
+		//printlns();
+		
+		//fromDateToLocalDate();
+		
+		//fromDateToLocalDateTime();
+		
+		//fromDateToLocalTime();
+		
+		//fromLocalDateToDate();
+		
+		//fromLocalDateTimeToDate();
 
 	}
 
